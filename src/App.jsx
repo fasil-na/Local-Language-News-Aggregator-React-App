@@ -1,7 +1,7 @@
 import React from 'react';
 
-import WeatherInfo from './WeatherInfo/WeatherInfo';
-import NewsInfo from './NewsInfo/NewsInfo';
+import WeatherInfo from './Components/WeatherInfo/WeatherInfo';
+import NewsInfo from './Components/NewsInfo/NewsInfo';
 import './App.scss';
 
 
