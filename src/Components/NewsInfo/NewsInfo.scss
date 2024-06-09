@@ -1,15 +1,16 @@
 .search-container {
   display: flex;
-  justify-content: space-between; /* Align items at the ends */
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allow wrapping for small screens */
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding-right: 20px;
 }
 
 .search-controls {
-  display: flex; /* Adjust flex properties for search controls */
+  display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
   margin-bottom: 20px;
 }
 
@@ -28,22 +29,22 @@ select {
 }
 
 .WeatherInfo {
-  margin-left: auto; /* Push WeatherInfo component to the right end */
+  margin-left: auto;
 }
 
 @media (max-width: 600px) {
   .search-container {
-    justify-content: center; /* Center items on small screens */
+    justify-content: center;
   }
 
   .WeatherInfo {
-    margin-left: auto; /* Reset margin to center WeatherInfo */
-    margin-right: auto; /* Reset margin to center WeatherInfo */
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 .news-info {
-  padding: 20px;
+  padding: 10px;
 }
 
 .news-article {

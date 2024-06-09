@@ -1,8 +1,7 @@
-// SearchInput.jsx
 import React from "react";
 import "./SearchInput.scss";
 
-function SearchInput({ value, onChange, placeholder }) {
+const SearchInput=({ value, onChange, placeholder })=> {
   const handleInputChange = (event) => {
     onChange(event.target.value);
   };

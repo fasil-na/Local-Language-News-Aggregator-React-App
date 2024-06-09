@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./WeatherInfo.scss";
 import axios from "axios";
 
-function WeatherInfo() {
+const WeatherInfo=()=> {
   const OPEN_WEATHER_API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
   const [weather, setWeather] = useState(null);
   const [backgroundImage, setBackgroundImage] = useState("");
@@ -32,6 +32,7 @@ function WeatherInfo() {
         setBackgroundImage(`url(${process.env.PUBLIC_URL}/Images/clear.png)`);
         break;
       case "thunderstorm":
+        
         setBackgroundImage(`url(${process.env.PUBLIC_URL}/Images/thunderstorm.png)`);
         break;
       case "drizzle":
@@ -58,7 +59,7 @@ function WeatherInfo() {
         setBackgroundImage("url(${process.env.PUBLIC_URL}/Images/mist.png)");
         break;
       default:
-        setBackgroundImage("url(${process.env.PUBLIC_URL}/Images/default.png)"); // Handle any other weather condition
+        setBackgroundImage("url(${process.env.PUBLIC_URL}/Images/default.png)"); 
         break;
     }
   };

@@ -1,11 +1,12 @@
-// NewsInfo.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { debounce } from "lodash";
 import SearchInput from "../SearchInput/SearchInput";
 import Pagination from "../Pagination/Pagination";
-import WeatherInfo from "../WeatherInfo/WeatherInfo"
+import WeatherInfo from "../WeatherInfo/WeatherInfo";
 import "./NewsInfo.scss";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const fetchNews = async (
   query,
@@ -71,7 +72,7 @@ const debouncedFetchNews = debounce(
   500
 );
 
-function NewsInfo() {
+const NewsInfo = () => {
   const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
   const [news, setNews] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -112,29 +113,30 @@ function NewsInfo() {
 
   return (
     <div>
+      <Header />
       <div className="search-container">
-  <div className="search-controls">
-    <SearchInput
-      value={searchQuery}
-      onChange={handleSearchChange}
-      placeholder="Search news..."
-    />
-    <select value={language} onChange={handleLanguageChange}>
-      <option value="en">English</option>
-      <option value="es">Spanish</option>
-      <option value="fr">French</option>
-    </select>
-  </div>
-  <WeatherInfo />
-</div>
-      
+        <div className="search-controls">
+          <SearchInput
+            value={searchQuery}
+            onChange={handleSearchChange}
+            placeholder="Search news..."
+          />
+          <select value={language} onChange={handleLanguageChange}>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+          </select>
+        </div>
+        <WeatherInfo />
+      </div>
+
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
         <p>{error}</p>
       ) : news.length > 0 ? (
         <div className="news-info">
-        <h1>Latest News</h1>
+          <h1>Latest News</h1>
           {news.map((article, index) => (
             <div key={index} className="news-article">
               <h2>{article.title}</h2>
@@ -158,8 +160,9 @@ function NewsInfo() {
       ) : (
         <p>No news available</p>
       )}
+      <Footer />
     </div>
   );
-}
+};
 
 export default NewsInfo;
