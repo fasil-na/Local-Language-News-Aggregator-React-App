@@ -1,0 +1,26 @@
+@import './components/NewsInfo/NewsInfo.scss';
+@import './components/WeatherInfo/WeatherInfo.scss';
+@import './components/SearchInput/SearchInput.scss';
+@import './components/Header/Header.scss'; 
+
+.App {
+  main {
+    padding: 10px;
+  }
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px; // Ensures the content does not grow infinitely wide
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 600px) {
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  

@@ -1,0 +1,37 @@
+.footer {
+  background-color: #f8f9fa;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-section.contact {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.footer-section.contact p {
+  margin: 0;
+  font-size: 1rem;
+  color: #343a40;
+}
+
+.footer-bottom {
+  border-top: 1px solid #495057;
+  padding-top: 10px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #343a40;
+}
+
+@media (max-width: 768px) {
+  .footer-section.contact p {
+    font-size: 0.875rem;
+  }
+}

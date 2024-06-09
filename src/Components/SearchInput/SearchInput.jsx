@@ -1,3 +1,4 @@
+// SearchInput.jsx
 import React from "react";
 import "./SearchInput.scss";
 
