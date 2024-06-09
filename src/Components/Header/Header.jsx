@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.scss';
 
 const Header=()=> {
+  // Get current date and format it
   const currentDate = new Date();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = currentDate.toLocaleDateString('en-US', options);

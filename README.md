@@ -68,3 +68,51 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- ******************************************************************************** -->
+
+## Design Decisions
+
+### Component Structure
+
+- **Header Component**: 
+  - Renders the logo, header content, and formatted date.
+  - Provides a consistent header across the application.
+
+- **Footer Component**:
+  - Displays contact information and copyright details.
+  - Ensures a consistent footer layout on all pages.
+
+- **NewsInfo Component**:
+  - Fetches news data from the News API and displays it.
+  - Implements pagination for navigating through news articles.
+  - Implemented filtering based on search query and sorted news based on publishing date.
+
+- **SearchInput Component**:
+  - Provides a search input field for users to search news articles.
+  - Utilizes debouncing to improve search performance.
+
+- **Pagination Component**:
+  - Implements pagination functionality for navigating through news pages.
+  - Calculates the total number of pages based on the total number of results and page size.
+
+- **WeatherInfo Component**:
+  - Retrieves weather data based on the user's geolocation.
+  - Sets background image based on current weather conditions.
+
+### API Integration
+
+- **News API**:
+  - Integrates with the News API to fetch top headlines based on search queries and language preferences.
+  - Handles loading indicators, error messages, and pagination.
+
+- **OpenWeather API**:
+  - Utilizes the OpenWeather API to retrieve weather information based on the user's geolocation.
+  - Dynamically sets background images based on weather conditions.
+
+### Styling
+
+- **SCSS Stylesheets**:
+  - Organizes stylesheets into separate files for each component.
+  - Follows a modular approach to styling for easier maintenance and readability.

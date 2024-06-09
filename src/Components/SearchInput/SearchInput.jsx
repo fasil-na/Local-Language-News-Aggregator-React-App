@@ -1,8 +1,10 @@
 import React from "react";
 import "./SearchInput.scss";
 
-const SearchInput=({ value, onChange, placeholder })=> {
+const SearchInput = ({ value, onChange, placeholder }) => {
+  // Event handler for input change
   const handleInputChange = (event) => {
+    // Call the onChange function passed from the parent component
     onChange(event.target.value);
   };
 
@@ -16,6 +18,6 @@ const SearchInput=({ value, onChange, placeholder })=> {
       />
     </div>
   );
-}
+};
 
 export default SearchInput;

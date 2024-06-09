@@ -19,32 +19,44 @@ const fetchNews = async (
   setLoading,
   setError
 ) => {
+  // Set loading state to true before fetching news
   setLoading(true);
   try {
+    // Fetch news data from News API
     const newsResponse = await axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&q=${query}&language=${language}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`
     );
 
+    // Set total number of results
     setTotalResults(newsResponse.data.totalResults);
+
+    // Filter out articles with "[Removed]" content
     const filteredNews = newsResponse.data.articles.filter(
       (article) =>
         article.content !== "[Removed]" &&
         article.title !== "[Removed]" &&
         article.description !== "[Removed]"
     );
+
+    // Sort news articles by publishing date
     const sortedNews = filteredNews.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
+
+    // Set news data
     setNews(sortedNews);
     setError(null);
   } catch (error) {
+    // Log error and set error message if fetching news fails
     console.error("Error fetching news data:", error);
     setError("Error fetching news data. Please try again later.");
   } finally {
+    // Set loading state to false after fetching news
     setLoading(false);
   }
 };
 
+// Debounce fetchNews function to avoid excessive API requests
 const debouncedFetchNews = debounce(
   (
     query,
@@ -83,6 +95,7 @@ const NewsInfo = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(20);
 
+  // Effect to fetch news data when searchQuery, language, or currentPage changes
   useEffect(() => {
     debouncedFetchNews(
       searchQuery,
@@ -97,16 +110,19 @@ const NewsInfo = () => {
     );
   }, [searchQuery, language, currentPage]);
 
+  // Event handler for search input change
   const handleSearchChange = (value) => {
     setSearchQuery(value);
-    setCurrentPage(1);
+    setCurrentPage(1); // Reset currentPage to 1 when searchQuery changes
   };
 
+  // Event handler for language select change
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
-    setCurrentPage(1);
+    setCurrentPage(1); // Reset currentPage to 1 when language changes
   };
 
+  // Event handler for pagination
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
@@ -114,6 +130,7 @@ const NewsInfo = () => {
   return (
     <div>
       <Header />
+
       <div className="search-container">
         <div className="search-controls">
           <SearchInput
@@ -121,6 +138,7 @@ const NewsInfo = () => {
             onChange={handleSearchChange}
             placeholder="Search news..."
           />
+
           <select value={language} onChange={handleLanguageChange}>
             <option value="en">English</option>
             <option value="es">Spanish</option>
@@ -160,6 +178,7 @@ const NewsInfo = () => {
       ) : (
         <p>No news available</p>
       )}
+
       <Footer />
     </div>
   );

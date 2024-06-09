@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Pagination.scss';
 
 const Pagination = ({ currentPage, totalResults, pageSize, onPageChange }) => {
+  // Calculate total pages based on total results and page size
   const totalPages = Math.ceil(totalResults / pageSize);
 
   return (
@@ -18,11 +19,12 @@ const Pagination = ({ currentPage, totalResults, pageSize, onPageChange }) => {
   );
 };
 
+// Define prop types for Pagination component
 Pagination.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-  totalResults: PropTypes.number.isRequired,
-  pageSize: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired, 
+  totalResults: PropTypes.number.isRequired, 
+  pageSize: PropTypes.number.isRequired, 
+  onPageChange: PropTypes.func.isRequired, 
 };
 
 export default Pagination;
